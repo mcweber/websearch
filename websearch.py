@@ -14,17 +14,28 @@ def web_search(query: str = "", limit: int = 10) -> list:
 
 st.title("Web Search")
 
-query = st.text_input("Enter a query")
-limit = st.slider("Number of results", 1, 20, 10)
+# query = st.text_input("Enter a query")
+# limit = st.slider("Number of results", 1, 20, 10)
 
-if st.button("Search"):
+# if st.button("Search"):
+#     results = web_search(query, limit)
+#     if results:
+#        for result in results:
+#             st.write(result["title"])
+#             st.write(result["url"])
+#             st.write(result["description"])
+#             st.write("---")
+#     else:
+#         st.write("No results found")
+
+# Define Search Form ----------------------------------------------
+with st.form(key="searchForm"):
+    question = st.text_input("Enter a query")
+    if st.form_submit_button("Suchen") and question != "":
     results = web_search(query, limit)
     if results:
-        for result in results:
+       for result in results:
             st.write(result["title"])
             st.write(result["url"])
             st.write(result["description"])
             st.write("---")
-    else:
-        st.write("No results found")
-
