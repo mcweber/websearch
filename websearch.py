@@ -5,7 +5,7 @@ ddg_client = Duckduckgo()
 
 def web_search(query: str = "", limit: int = 10) -> list:
     results = ddg_client.search(f"Nachrichten über '{query}'")
-    st.warning(results["data"])
+    st.warning(results)
     if results:
         return results["data"][:limit]
     else:
