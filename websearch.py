@@ -32,10 +32,10 @@ st.title("Web Search")
 with st.form(key="searchForm"):
     question = st.text_input("Enter a query")
     if st.form_submit_button("Suchen") and question != "":
-    results = web_search(query, limit)
-    if results:
-       for result in results:
-            st.write(result["title"])
-            st.write(result["url"])
-            st.write(result["description"])
-            st.write("---")
+        results = web_search(query, limit)
+        if results:
+           for result in results:
+                st.write(result["title"])
+                st.write(result["url"])
+                st.write(result["description"])
+                st.write("---")
